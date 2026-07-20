@@ -413,6 +413,7 @@ button {
   gap: 14px;
   padding: 18px;
   text-align: left;
+  text-decoration: none;
   border-radius: 28px;
   border: 1px solid rgba(255, 255, 255, 0.12);
   background: rgba(255, 255, 255, 0.05);
@@ -1174,5 +1175,170 @@ button {
 
   .tabs {
     margin-bottom: 14px;
+  }
+}
+
+/* ---------------------------------------------------------------------- */
+/* Navegacion unificada: sidebar en escritorio, barra inferior en movil    */
+/* ---------------------------------------------------------------------- */
+
+.app-body {
+  display: flex;
+  gap: 28px;
+  align-items: flex-start;
+}
+
+.app-content {
+  flex: 1 1 auto;
+  min-width: 0;
+}
+
+.sidebar {
+  flex: 0 0 220px;
+  position: sticky;
+  top: 24px;
+  display: grid;
+  gap: 6px;
+  padding: 16px;
+  border-radius: 20px;
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid rgba(255, 255, 255, 0.06);
+}
+
+.sidebar-brand {
+  padding: 4px 10px 10px;
+}
+
+.sidebar-item {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 12px 14px;
+  border-radius: 14px;
+  color: #c9d5e0;
+  text-decoration: none;
+}
+
+.sidebar-item svg {
+  width: 20px;
+  height: 20px;
+  flex: 0 0 auto;
+}
+
+.sidebar-item:hover {
+  background: rgba(255, 255, 255, 0.05);
+  color: #e6edf3;
+}
+
+.sidebar-item.active {
+  background: rgba(125, 211, 252, 0.16);
+  color: #e6edf3;
+  border: 1px solid rgba(125, 211, 252, 0.35);
+}
+
+.bottom-nav {
+  position: fixed;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  padding: 8px 6px calc(env(safe-area-inset-bottom, 0px) + 8px);
+  background: rgba(9, 12, 16, 0.97);
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
+  z-index: 20;
+}
+
+.bottom-nav-item {
+  display: grid;
+  justify-items: center;
+  gap: 4px;
+  border: none;
+  background: transparent;
+  color: #8b98a6;
+  padding: 6px 10px;
+  font-size: 0.72rem;
+  text-decoration: none;
+  border-radius: 12px;
+}
+
+.bottom-nav-item svg {
+  width: 22px;
+  height: 22px;
+}
+
+.bottom-nav-item.active {
+  color: #7dd3fc;
+}
+
+.nav-drawer-list a.drawer-item {
+  text-decoration: none;
+  justify-content: flex-start;
+}
+
+.nav-drawer-list a.drawer-item svg {
+  width: 20px;
+  height: 20px;
+  flex: 0 0 auto;
+}
+
+.stat-row {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 14px;
+  margin: 20px 0;
+}
+
+.stat-card {
+  display: grid;
+  gap: 8px;
+}
+
+.stat-card strong {
+  font-size: 1.8rem;
+}
+
+.desktop-only {
+  display: grid;
+}
+
+.mobile-only {
+  display: none;
+}
+
+.desktop-hidden {
+  display: none;
+}
+
+@media (max-width: 840px) {
+  .app-body {
+    display: block;
+  }
+
+  .desktop-only {
+    display: none;
+  }
+
+  .mobile-only {
+    display: flex;
+  }
+
+  .desktop-hidden {
+    display: inline-flex;
+  }
+
+  .shell {
+    padding-bottom: 92px;
+  }
+
+  .stat-row {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+@media (max-width: 520px) {
+  .stat-row {
+    grid-template-columns: 1fr;
   }
 }
